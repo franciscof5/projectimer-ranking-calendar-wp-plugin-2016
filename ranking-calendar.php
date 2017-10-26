@@ -303,7 +303,7 @@ class RankingCalendar
     {
         // Global DB object
         global $wpdb;
-
+        if(function_exists("revert_database_schema"))revert_database_schema();
         // If year is set in URL then get it from there
         if (isset($_GET['calendar_year']))
         {
@@ -370,16 +370,16 @@ class RankingCalendar
         //f5sites If category is set in URL then get it from there
         if (!isset($_GET['calendario'])) {
             // Get posts for given year
-            $posts = $wpdb->get_results('SELECT * FROM ' . $wpdb->posts . ' WHERE post_status IN ' . $postStatuses . ' AND post_password = "" AND post_type = "post" AND ' . implode(' AND ', $conditions) . ' ORDER BY post_date ASC');
+            $posts = $wpdb->get_results('SELECT * FROM ' . $wpdb->posts . ' WHERE post_status IN ' . $postStatuses . ' AND post_password = "" AND post_type = "projectimer_focus" AND ' . implode(' AND ', $conditions) . ' ORDER BY post_date ASC');
         } else if ($_GET['calendario']=="pessoal") {
             // Get posts for given year
-            $posts = $wpdb->get_results('SELECT * FROM ' . $wpdb->posts . ' WHERE post_status IN ' . $postStatuses . ' AND post_password = "" AND post_type = "post" AND ' . implode(' AND ', $conditions) . ' AND post_author = '.get_current_user_id().' ORDER BY post_date ASC');
+            $posts = $wpdb->get_results('SELECT * FROM ' . $wpdb->posts . ' WHERE post_status IN ' . $postStatuses . ' AND post_password = "" AND post_type = "projectimer_focus" AND ' . implode(' AND ', $conditions) . ' AND post_author = '.get_current_user_id().' ORDER BY post_date ASC');
         } else if ($_GET['calendario']=="comunidade") {
             // Get posts for given year
-            $posts = $wpdb->get_results('SELECT * FROM ' . $wpdb->posts . ' WHERE post_status IN ' . $postStatuses . ' AND post_password = "" AND post_type = "post" AND ' . implode(' AND ', $conditions) . ' AND post_author NOT IN ('.get_current_user_id().') ORDER BY post_date ASC');
+            $posts = $wpdb->get_results('SELECT * FROM ' . $wpdb->posts . ' WHERE post_status IN ' . $postStatuses . ' AND post_password = "" AND post_type = "projectimer_focus" AND ' . implode(' AND ', $conditions) . ' AND post_author NOT IN ('.get_current_user_id().') ORDER BY post_date ASC');
         } else if ($_GET['calendario']=="agregado") {
             // Get posts for given year
-            $posts = $wpdb->get_results('SELECT * FROM ' . $wpdb->posts . ' WHERE post_status IN ' . $postStatuses . ' AND post_password = "" AND post_type = "post" AND ' . implode(' AND ', $conditions) . ' ORDER BY post_date ASC');
+            $posts = $wpdb->get_results('SELECT * FROM ' . $wpdb->posts . ' WHERE post_status IN ' . $postStatuses . ' AND post_password = "" AND post_type = "projectimer_focus" AND ' . implode(' AND ', $conditions) . ' ORDER BY post_date ASC');
         }
 
         // Initialize variable to store 'show images' flag
@@ -476,7 +476,7 @@ class RankingCalendar
         }
 
         // Get unique years for which posts are available
-        $years = $wpdb->get_results('SELECT DISTINCT YEAR(post_date) AS year FROM ' . $wpdb->posts . ' WHERE post_status IN ' . $postStatuses . ' AND post_password = "" AND post_type = "post"' . (isset($conditions['id']) ? ' AND ' . $conditions['id'] : '') . ' ORDER BY post_date DESC');
+        $years = $wpdb->get_results('SELECT DISTINCT YEAR(post_date) AS year FROM ' . $wpdb->posts . ' WHERE post_status IN ' . $postStatuses . ' AND post_password = "" AND post_type = "projectimer_focus"' . (isset($conditions['id']) ? ' AND ' . $conditions['id'] : '') . ' ORDER BY post_date DESC');
 
         // Layout number to use
         $layout = (int)$options['layout'];
