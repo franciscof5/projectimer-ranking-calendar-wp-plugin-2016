@@ -304,6 +304,7 @@ class RankingCalendar
         // Global DB object
         global $wpdb;
         if(function_exists("revert_database_schema"))revert_database_schema();
+        #var_dump($wpdb->posts);die;
         // If year is set in URL then get it from there
         if (isset($_GET['calendar_year']))
         {
