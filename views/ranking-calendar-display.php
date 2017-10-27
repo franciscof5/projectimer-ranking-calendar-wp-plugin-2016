@@ -5,15 +5,22 @@ $pageUrl = get_page_link(get_the_ID());
 // Links for calendar years
 $yearsLinks = array();
 
+$query_string_t  = explode('calendario=', $_SERVER['REQUEST_URI']);
+$query_string_t2  = explode('&', $query_string_t[1]);
+$query_string_t2 = $query_string_t2[0];
+if(isset($query_string_t2)) {
+    $calendario_selected = "&calendario=".$query_string_t2;
+}
+
 // Loop through list of years to display link for each year
 foreach ($years as $yearDetails)
 {
     $queryArguments = array('calendar_year' => $yearDetails->year);
     if ($category) : $queryArguments['category'] = $category; endif;
     if($yearDetails->year==2012)
-    $yearsLinks[] = '<a href="' . add_query_arg($queryArguments, $pageUrl) . '">' . $yearDetails->year . '</a>';
+    $yearsLinks[] = '<a href="' . add_query_arg($queryArguments, $pageUrl) . $calendario_selected . '">' . $yearDetails->year . '</a>';
     elseif($yearDetails->year>2012)
-    $yearsLinks[] = '<a href="' . add_query_arg($queryArguments, $pageUrl) . '">' . $yearDetails->year . '</a> |';
+    $yearsLinks[] = '<a href="' . add_query_arg($queryArguments, $pageUrl) . $calendario_selected . '">' . $yearDetails->year . '</a> |';
 }
 ?>
 <p class="calendar-p">
