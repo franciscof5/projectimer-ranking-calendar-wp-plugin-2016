@@ -1,10 +1,10 @@
 <?php
 
 /*
-Plugin Name: Ranking Calendar
+Plugin Name: Ranking Calendar for Projectimer
 Plugin URI: http://f5sites.com/ranking-calendar
 Description: Ranking Calendar is a FAST ADAPTATION based on Calendar Archives, a visualization plugin for your WordPress site which creates yearly calendar for your posts. Create a new page (having 'no sidebars' layout) for your calendar ranking and insert the code [ranking-calendar] in the editor. Load this page and enjoy the view!
-Version: 0.2
+Version: 0.3
 Author: Francisco Matelli Matulovic
 Author URI: http://www.franciscomat.com
 Text Domain: ranking-calendar

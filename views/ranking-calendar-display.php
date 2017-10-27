@@ -10,7 +10,10 @@ foreach ($years as $yearDetails)
 {
     $queryArguments = array('calendar_year' => $yearDetails->year);
     if ($category) : $queryArguments['category'] = $category; endif;
+    if($yearDetails->year==2012)
     $yearsLinks[] = '<a href="' . add_query_arg($queryArguments, $pageUrl) . '">' . $yearDetails->year . '</a>';
+    elseif($yearDetails->year>2012)
+    $yearsLinks[] = '<a href="' . add_query_arg($queryArguments, $pageUrl) . '">' . $yearDetails->year . '</a> |';
 }
 ?>
 <p class="calendar-p">
@@ -20,8 +23,13 @@ printf(__('Ver anos anteriores: %s', 'ranking-calendar'), implode(' ', $yearsLin
 ?>
 </p>
 <p class="calendar-p">
-<?php if(is_user_logged_in()) { ?>
-	visualizar calendario: <a href="<?php bloginfo('url'); ?>/calendar/?calendario=pessoal<?php echo $year_selected ?>">pessoal</a> <a href="<?php bloginfo('url'); ?>/calendar/?calendario=comunidade<?php echo $year_selected ?>">comunidade</a> <a href="<?php bloginfo('url'); ?>/calendar/?calendario=agregado<?php echo $year_selected ?>">agregado</a>
+<?php if(is_user_logged_in()) {
+    $query_string  = explode('calendar_year=', $_SERVER['REQUEST_URI']);
+    if(isset($query_string[1])) {
+        $year_selected = "&calendar_year=".$query_string[1];
+    }
+     ?>
+	visualizar calendario: <a href="<?php bloginfo('url'); ?>/calendar/?calendario=pessoal<?php echo $year_selected ?>">pessoal</a> | <a href="<?php bloginfo('url'); ?>/calendar/?calendario=comunidade<?php echo $year_selected ?>">comunidade</a> | <a href="<?php bloginfo('url'); ?>/calendar/?calendario=agregado<?php echo $year_selected ?>">completo</a>
 <?php } else { ?>
 
 <?php } ?>
