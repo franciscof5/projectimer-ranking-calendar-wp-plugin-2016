@@ -2,10 +2,17 @@
 <?php
 
 $query_string  = explode('calendar_year=', $_SERVER['REQUEST_URI']);
+
 if(isset($query_string[1])) {
 	$year_selected = "&calendar_year=".$query_string[1];
 }
-
+/*
+$query_string_t2  = explode('&', $query_string_t[1]);
+echo $query_string_t2 = $query_string_t2[0];die;
+if(isset($query_string_t2)) {
+    $year_selected = "&calendar_year=".$query_string_t2;
+}
+*/
 //total post in a month
 $tot = 0;
 //warning division por 0

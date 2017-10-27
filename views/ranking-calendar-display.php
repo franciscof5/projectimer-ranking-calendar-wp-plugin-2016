@@ -31,9 +31,12 @@ printf(__('Ver anos anteriores: %s', 'ranking-calendar'), implode(' ', $yearsLin
 </p>
 <p class="calendar-p">
 <?php if(is_user_logged_in()) {
-    $query_string  = explode('calendar_year=', $_SERVER['REQUEST_URI']);
-    if(isset($query_string[1])) {
-        $year_selected = "&calendar_year=".$query_string[1];
+    $query_string_s  = explode('calendar_year=', $_SERVER['REQUEST_URI']);
+    $query_string_s[1];
+    $query_string_s2  = explode('&', $query_string_s[1]);
+    $query_string_s2 = $query_string_s2[0];
+    if(isset($query_string_s2)) {
+        $year_selected = "&calendar_year=".$query_string_s2;
     }
      ?>
 	visualizar calendario: <a href="<?php bloginfo('url'); ?>/calendar/?calendario=pessoal<?php echo $year_selected ?>">pessoal</a> | <a href="<?php bloginfo('url'); ?>/calendar/?calendario=comunidade<?php echo $year_selected ?>">comunidade</a> | <a href="<?php bloginfo('url'); ?>/calendar/?calendario=agregado<?php echo $year_selected ?>">completo</a>
