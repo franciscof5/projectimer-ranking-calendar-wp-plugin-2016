@@ -8,7 +8,7 @@ $yearsLinks = array();
 $query_string_t  = explode('calendario=', $_SERVER['REQUEST_URI']);
 $query_string_t2  = explode('&', $query_string_t[1]);
 $query_string_t2 = $query_string_t2[0];
-if(isset($query_string_t2)) {
+if($query_string_t2!="") {
     $calendario_selected = "&calendario=".$query_string_t2;
 }
 
