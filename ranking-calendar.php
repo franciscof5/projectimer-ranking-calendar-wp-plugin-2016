@@ -49,6 +49,8 @@ class RankingCalendar
         // Add shortcode handler
         add_shortcode('ranking-calendar', array(&$this, 'display'));
 
+        //
+        
         // Add 'options' page
         #add_action('admin_menu', array(&$this, 'adminMenu'));
 
@@ -301,6 +303,10 @@ class RankingCalendar
 
     function display()
     {
+        #wp_dequeue_script('bootstrap-js');
+       # wp_dequeue_style('bootstrap-css');
+        #wp_enqueue_script('bootstrap4-js', plugins_url('/assets/bootstrap.min.js', __FILE__) );
+        #wp_enqueue_style('bootstrap4-css', plugins_url('/assets/bootstrap.min.css', __FILE__) );
         // Global DB object
         global $wpdb;
         if(function_exists("revert_database_schema"))revert_database_schema();
@@ -401,8 +407,10 @@ class RankingCalendar
         // Loop through list of posts to build 'posts per day' data
         for ($index = 0; $index < count($posts); $index++)
         {
-            // Post's time
+            // Post's time(oid)
             $postTime = strtotime($posts[$index]->post_date);
+            #var_dump($posts[$index]->post_date);
+            #var_dump($postTime);die;
 
             // Post's month
             $month = (int)date('m', $postTime);

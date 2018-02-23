@@ -36,23 +36,21 @@ if(count($postsPerDay[$month])>0) {
 </select>*/
 ?>
 
-<div class="calendar-container container">
-	<h1 class="month-year-caption col-md-12"><?php echo date('F', $timeForFirstDayOfMonth); ?> <?php echo $year; ?> </h1>
+<div class="calendar-container">
+	<h1 class="month-year-caption"><?php echo date('F', $timeForFirstDayOfMonth); ?> <?php echo $year; ?> </h1>
 	
 	<?php if($tot==0) { ?>
-		<p class="calendar-p hidden-sm hidden-xs">Sem atividade</p>
+		<p class="calendar-p">Sem atividade</p>
 	<?php } else { ?>
-		<p class="calendar-p hidden-sm hidden-xs"><?php echo $tot; ?> pomodoros no total, <?php echo $dias = count($postsPerDay[$month]); ?> dias produtivos, produtividade media <?php echo round($tot/$dias, 2) ?></p>
+		<p class="calendar-p"><?php echo $tot; ?> pomodoros no total, <?php echo $dias = count($postsPerDay[$month]); ?> dias produtivos, produtividade media <?php echo round($tot/$dias, 2) ?></p>
 	<?php } ?>    
-	<ul class="weekdays row seven-cols">
+	<ul class="weekdays">
 <?php
 	// Loop for seven times to output weekday names
-$day_number = date('N', strtotime($date))+1;
-$day_current = date('d');
 	for ($counter = 0, $i = $firstDayOfWeek; 7 > $counter; $counter++, $i++)
 	{
 ?>
-		<li class="col col-md-1 <?php echo ($counter==$day_number ? '' : 'hidden-sm hidden-xs'); ?>"><?php echo $weekdays[$i]; ?></li>
+		<li><?php echo $weekdays[$i]; ?></li>
 <?php
 		// If counter reached to 6, set it to -1
 		if (6 == $i)
@@ -62,7 +60,7 @@ $day_current = date('d');
 	}
 ?>
 	</ul><br class="clear" />
-	<ul class="calendar row  seven-cols hidden-sm hidden-xs">
+	<ul class="calendar">
 <?php
 	// Total number of days in current month/year
 	$totalDaysInMonth = date('t', $timeForFirstDayOfMonth);
@@ -86,7 +84,7 @@ $day_current = date('d');
 		for ($i = 0; $i < $totalEmptyDays; $i++)
 		{
 ?>
-		<li class="col empty col-md-1 hidden-sm hidden-xs">&nbsp;</li>
+		<li class="empty">&nbsp;</li>
 <?php
 		}
 	}
@@ -99,7 +97,7 @@ $day_current = date('d');
 		{
 ?>
 	</ul><br class="clear" />
-	<ul class="calendar row seven-cols">
+	<ul class="calendar">
 <?php
 		}
 
@@ -111,10 +109,8 @@ $day_current = date('d');
 		{
 			$backgroundImage = $backgroundImages[$month][$day];
 		}
-		#if($day==21)
-		#	echo 'background-color:#434;';
 ?>
-		<li class="col col-md-1 day <?php echo ($backgroundImage ? ' style="background-image: url(' . $this->getImageUrl($backgroundImage, $boxDimension) . ');"' : ''); echo ($day==$day_current ? 'day_current_expand' : 'hidden-sm hidden-xs'); ?>" style="<?php #echo ($day==$day_current ? 'background-color:#AAA !important;' : ''); ?>">
+		<li class="day"<?php echo ($backgroundImage ? ' style="background-image: url(' . $this->getImageUrl($backgroundImage, $boxDimension) . ');"' : ''); ?>>
 <?php
 		// If background image set for current day in current month/year then display that day in black/white
 		if ($backgroundImage)
@@ -333,7 +329,7 @@ $day_current = date('d');
 	for ($i = 0; $i < $totalEmptyDays; $i++)
 	{
 ?>
-		<li class="col empty col-md-1 hidden-sm hidden-xs">&nbsp;</li>
+		<li class="empty">&nbsp;</li>
 <?php
 	}
 ?>

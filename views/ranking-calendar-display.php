@@ -1,4 +1,6 @@
 <?php
+#date_default_timezone_set('America/Sao_Paulo');
+
 // Get current page's URL
 $pageUrl = get_page_link(get_the_ID());
 
@@ -23,13 +25,22 @@ foreach ($years as $yearDetails)
     $yearsLinks[] = '<a href="' . add_query_arg($queryArguments, $pageUrl) . $calendario_selected . '">' . $yearDetails->year . '</a> |';
 }
 ?>
-<p class="calendar-p">
+<div class="hidden-sm hidden-xs">
+        <h3>Integration</h3>
+        <a href="https://www.pomodoros.com.br/?ical&posttype=projectimer_focus">TODOS</a>
+
+        <a href="https://www.pomodoros.com.br/?ical&posttype=projectimer_focus&author_id=2">SEUS</a>
+        <p>Precisa de Ajuda?
+        <br />
+        <a href="https://support.google.com/calendar/answer/37100?co=GENIE.Platform%3DDesktop&hl=en">Como adicionar no Google Calendar</a></p>https://support.google.com/calendar/answer/37648?hl=pt-BR
+    </div>
+<p class="calendar-p col-md-12 hidden-sm hidden-xs">
 <?php
 // Output links for calendar years
 printf(__('Ver anos anteriores: %s', 'ranking-calendar'), implode(' ', $yearsLinks));
 ?>
 </p>
-<p class="calendar-p">
+<p class="calendar-p hidden-sm hidden-xs">
 <?php if(is_user_logged_in()) {
     $query_string_s  = explode('calendar_year=', $_SERVER['REQUEST_URI']);
     $query_string_s[1];
@@ -105,19 +116,24 @@ for ($month = ($reverseMonths ? 12 : 1); ($reverseMonths ? 0 < $month : 12 >= $m
     }
 
     // Time for first day of current month/year
+    #date_default_timezone_set('America/Sao_Paulo');
     $timeForFirstDayOfMonth = mktime(0, 0, 0, $month, 1, $year);
 
     // Include needed layout
     #include('calendar-layout-' . $layout . '.php');
 	#var_dump("PASSO1");
+    if($month < $currentMonth)
+    echo '<div class="hidden-sm hidden-xs">';
     include('ranking-calendar-layout-bootstrap.php');
+    if($month < $currentMonth)
+    echo '</div>';
 }
 
 // Include needed javascript only when 'browse by month' setting is ON
 if ((bool)$options['browse_by_month'])
 {
 ?>
-<script src="<?php echo get_option('siteurl'); ?>/wp-includes/js/jquery/jquery.js" type="text/javascript"></script>
+<!--script src="<?php echo get_option('siteurl'); ?>/wp-includes/js/jquery/jquery.js" type="text/javascript"></script-->
 <script src="<?php echo get_option('siteurl'); ?>/wp-content/plugins/ranking-calendar/views/ranking-calendar-display.js" type="text/javascript"></script>
 <?php
 }

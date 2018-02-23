@@ -75,7 +75,7 @@ ul.calendar li.day {
 	ul.calendar li.day div.day-footer {
 		overflow: hidden;
 		height: 130px;
-		width:100%;
+		/*width:100%;*/
 	}
 	ul.calendar li.day div.day-footer ul li {
 		height: 6px;
@@ -116,18 +116,20 @@ $actualBoxDimension = ($boxDimension - ($padding * 2));
 ul.calendar, ul.weekdays {
     margin: 0px auto;
     padding: 0px;
-    width: <?php echo (($boxDimension * 7) + 28); ?>px; /* Container's width will be box width multiplied by number of days (plus 28 considering margin and border widths for each box in week) in week */
+    /*f5 width: <?php echo (($boxDimension * 7) + 28); ?>px; /* Container's width will be box width multiplied by number of days (plus 28 considering margin and border widths for each box in week) in week */
 }
 
 /* Style for calendar day, empty and weekday data container */
 ul.calendar li.day, ul.calendar li.empty, ul.weekdays li {
     border: 1px #999999 solid;
-    float: left;
+    
     font-weight: bold;
     list-style: none;
     margin: 1px;
     overflow: hidden;
     padding: <?php echo $padding; ?>px;
+    /*f5 
+    float: left;
     width: <?php echo $actualBoxDimension; ?>px; /* Container's width will be same as box dimension */
 }
 
@@ -191,7 +193,7 @@ ul.calendar li.day:hover ul.invisible {
 ul.calendar li.day ul li {
     border: none;
     float: none;
-    font-size: 9px;
+    font-size: 10px;
     font-weight: normal;
     list-style: none;
     margin-left: 0;
@@ -229,5 +231,55 @@ ul.calendar li.day:hover ul li:hover a:hover {
 .clear {
     clear: both;
 }
+
+/*f5sites*/
+@media (max-width: 992px){
+	.author-ranking {
+		display: block !important;
+	}
+	.calendar-container {
+		font-size: 16px !important;
+	}
+	.day_current_expand {
+		margin-top: -80px !important;
+	}
+}
+@media (min-width: 993px){
+	.author-ranking {
+		display: none !important;
+	}
+}
+/* 7 cols bs */
+@media (min-width: 768px){
+  .seven-cols .col-md-1,
+  .seven-cols .col-sm-1,
+  .seven-cols .col-lg-1  {
+    width: 100%;
+    *width: 100%;
+  }
+}
+
+@media (min-width: 992px) {
+  .seven-cols .col-md-1,
+  .seven-cols .col-sm-1,
+  .seven-cols .col-lg-1 {
+    width: 13.285714285714285714285714285714%;
+    *width: 13.285714285714285714285714285714%;
+  }
+}
+
+/**
+ *  The following is not really needed in this case
+ *  Only to demonstrate the usage of @media for large screens era 14
+ */    
+@media (min-width: 1200px) {
+  .seven-cols .col-md-1,
+  .seven-cols .col-sm-1,
+  .seven-cols .col-lg-1 {
+    width: 13.285714285714285714285714285714%;
+    *width: 13.285714285714285714285714285714%;
+  }
+}
+
 //-->
 </style>
