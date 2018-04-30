@@ -26,14 +26,24 @@ foreach ($years as $yearDetails)
 }
 ?>
 <div class="hidden-sm hidden-xs">
-        <h3>Integration</h3>
-        <a href="https://www.pomodoros.com.br/?ical&posttype=projectimer_focus">TODOS</a>
+    <div class="row">
+        <div class="col-md-4">
+            <h3>Integration</h3>
+            <a href="https://www.pomodoros.com.br/?ical&posttype=projectimer_focus">TODOS</a>
 
-        <a href="https://www.pomodoros.com.br/?ical&posttype=projectimer_focus&author_id=2">SEUS</a>
-        <p>Precisa de Ajuda?
-        <br />
-        <a href="https://support.google.com/calendar/answer/37100?co=GENIE.Platform%3DDesktop&hl=en">Como adicionar no Google Calendar</a></p>https://support.google.com/calendar/answer/37648?hl=pt-BR
+            <a href="https://www.pomodoros.com.br/?ical&posttype=projectimer_focus&author_id=2">SEUS</a>
+            <p>Precisa de Ajuda?
+            <br />
+            <a href="https://support.google.com/calendar/answer/37100?co=GENIE.Platform%3DDesktop&hl=en">Como adicionar no Google Calendar</a></p>https://support.google.com/calendar/answer/37648?hl=pt-BR
+        </div>
+        <div class="col-md-4">
+            <h3>Ranking</h3>
+        </div>
+        <div class="col-md-4">
+            <h3>Concursos e Provas</h3>
+        </div>
     </div>
+</div>
 <p class="calendar-p col-md-12 hidden-sm hidden-xs">
 <?php
 // Output links for calendar years
