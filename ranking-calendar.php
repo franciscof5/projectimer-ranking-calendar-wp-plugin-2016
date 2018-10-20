@@ -373,7 +373,7 @@ class RankingCalendar
         }
 
         
-
+        
         //f5sites If category is set in URL then get it from there
         if (!isset($_GET['calendario'])) {
             // Get posts for given year
@@ -403,15 +403,23 @@ class RankingCalendar
 
         // Is download for remote images disabled?
         $remoteImagesDownloadDisabled = !(bool)ini_get('allow_url_fopen');
-
+        #date_default_timezone_set('America/Sao_Paulo');
+        echo get_option('gmt_offset');
+        echo get_option('timezone_string');
+        $agora = current_time('Y-m-d H:i:s');#current_time("mysql");
+        $agora_gmt = current_time("mysql", true);
+        #echo "agora:".$agora.", agora_gmt:".$agora_gmt;die;
         // Loop through list of posts to build 'posts per day' data
         for ($index = 0; $index < count($posts); $index++)
         {
             // Post's time(oid)
             $postTime = strtotime($posts[$index]->post_date);
+            #var_dump($postTime);
+            #$postTime = strtotime("-6 hours", $postTime);
             #var_dump($posts[$index]->post_date);
-            #var_dump($postTime);die;
-
+            #var_dump($posts[$index]->post_date);
+            #var_dump($posts[$index]->post_date_gmt);
+            #echo "<br>";
             // Post's month
             $month = (int)date('m', $postTime);
 

@@ -221,7 +221,7 @@ $day_current = date('d');
 		<?php
 		// If any post(s) for current day in current month/year then display it/them
 		if (isset($postsPerDay[$month][$day])) { ?>
-			<div class="day-footer">
+			<div class="day-footer2">
 				<ul<?php echo ($backgroundImage ? ' class="invisible"' : ''); ?>>
 				<?php
 				// Loop through post(s) for current day in current month/year to display it/them
@@ -339,5 +339,46 @@ $day_current = date('d');
 ?>
 	</ul><br class="clear" /><br class="clear" />
 </div>
-
+<script>
+jQuery( document ).ready(function() {
+	jQuery(".author-ranking").mouseenter(function(){
+		jQuery(this).css('height', "auto");
+	})
+	jQuery(".author-ranking").mouseleave(function(){
+		jQuery(this).css('height', "32px");
+	})
+	jQuery(".author-ranking").mouseleave(function(){
+		jQuery(this).css('height', "32px");
+	})
+	/*
+		jQuery("ul.calendar li.day").find('.day-caption').mouseenter(function(){
+                //jQuery(this).find('.author-ranking').show();
+                //if(jQuery(this).find('.author-ranking').css('display') == 'none') {
+                    
+                    jQuery(this).parent().find('.author-ranking').css('height', "auto");
+                //}
+                //console.log("mouseenter day caption");
+            })
+            jQuery("ul.calendar li.day").find('.author-ranking').mouseleave(function(){
+                //jQuery(this).hide();
+                jQuery(this).css('height', "30px");
+                //console.log("saiu author ranking");
+            })
+            jQuery("ul.calendar li.day").mouseleave(function(){
+                //jQuery(this).find('.author-ranking').show();
+                jQuery(this).find('.author-ranking').css('height', "30px");
+            })*/
+	jQuery(".author-ranking").each(function(i) {
+                if(jQuery(this).find("ul").length) {
+                    //Gold
+                    jQuery(this).find("li:nth-child(1)").find(".aut_barra div").css('background-color', "#FFD700");
+                    //Silver
+                    jQuery(this).find("li:nth-child(2)").find(".aut_barra div").css('background-color', "#A8A8A8");
+                    //Bronze
+                    jQuery(this).find("li:nth-child(3)").find(".aut_barra div").css('background-color', "#965A38");
+                }
+                //jQuery.each(".aut_barra").css('background-color', "#964");
+            });
+});
+</script>
 <?php #} ?>

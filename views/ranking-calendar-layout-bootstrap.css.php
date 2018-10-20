@@ -12,10 +12,12 @@
 	text-align:center;
 }
 .day-caption {
-	font-family:Lobster;
+	font-family:Forte;
+	font-weight: 100;
 }
 ul.calendar li.day {
 		overflow: hidden !important;
+		/*overflow-y: scroll;*/
 		border-radius: 5px;
 	}
 	ul.calendar li.empty {
@@ -26,10 +28,14 @@ ul.calendar li.day {
 		text-align: center;
 	}
 	ul.calendar li.day .author-ranking {
-		display: none;
+		/*display: none;*/
 		overflow-y:auto; 
-		max-height: 80px;
+		height: 32px;
+		min-height: 32px;
+		/*max-height: 30px;*/
 		background: #FFF;
+		border-top:1px dotted #333;
+		border-bottom:1px dotted #333;
 		/*border-bottom-left-radius: 5px;
 		border-bottom-right-radius: 5px; */
 	}
@@ -71,19 +77,22 @@ ul.calendar li.day {
 		padding-right: 5px;
 	}
 
-	
-	ul.calendar li.day div.day-footer {
+	ul.calendar li.day div.day-footer2 {
+		overflow-y: scroll;
+		height: 130px;
+	}
+	/*ul.calendar li.day div.day-footer {
 		overflow: hidden;
 		height: 130px;
-		/*width:100%;*/
-	}
+		/*width:100%;*
+	}*/
 	ul.calendar li.day div.day-footer ul li {
 		height: 6px;
 		margin: 0;
 	}
-	ul.calendar li.day div.day-footer {
+	/*ul.calendar li.day div.day-footer {
 		border-top:1px dotted #333;
-	}
+	}*/
 	ul.calendar li.day div.day-footer:hover {
 		overflow-y: auto !important;
 	}
@@ -99,7 +108,8 @@ ul.calendar li.day {
 	}
 	/**/
 	ul.weekdays li {
-		font-family: Lobster;
+		font-family: Forte;
+		font-weight: 100 !important;
 		background-color: #777 !important;
 		color: #FFF !important;
 	}
@@ -197,7 +207,7 @@ ul.calendar li.day ul li {
     font-weight: normal;
     list-style: none;
     margin-left: 0;
-    padding: 5px;
+    /*padding: 5px;*/
 }
 
 /* Style for calendar day post data which has background image */
@@ -246,7 +256,7 @@ ul.calendar li.day:hover ul li:hover a:hover {
 }
 @media (min-width: 993px){
 	.author-ranking {
-		display: none !important;
+		/*display: none !important;*/
 	}
 }
 /* 7 cols bs */
