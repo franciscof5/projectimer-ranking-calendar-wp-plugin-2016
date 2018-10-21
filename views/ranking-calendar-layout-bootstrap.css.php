@@ -79,7 +79,7 @@ ul.calendar li.day {
 
 	ul.calendar li.day div.day-footer2 {
 		overflow-y: scroll;
-		height: 130px;
+		height: 80px;
 	}
 	/*ul.calendar li.day div.day-footer {
 		overflow: hidden;
@@ -104,7 +104,9 @@ ul.calendar li.day {
 	/*for a span above*/
 	.show-hour {
 		float: right;
-		font-size: 10px;
+		font-size: 12px;
+		font-family: Trebuchet, Arial !important;
+		font-weight: 600;
 	}
 	/**/
 	ul.weekdays li {
