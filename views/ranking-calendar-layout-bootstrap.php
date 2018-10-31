@@ -37,7 +37,7 @@ if(count($postsPerDay[$month])>0) {
 ?>
 
 <div class="calendar-container container">
-	<h1 class="month-year-caption col-md-12"><?php echo date('F', $timeForFirstDayOfMonth); ?> <?php echo $year; ?> </h1>
+	<h1 class="month-year-caption forte col-md-12"><?php echo date('F', $timeForFirstDayOfMonth); ?> <?php echo $year; ?> </h1>
 	
 	<?php if($tot==0) { ?>
 		<p class="calendar-p hidden-sm hidden-xs">Sem atividade</p>

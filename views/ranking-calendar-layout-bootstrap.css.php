@@ -1,4 +1,7 @@
 <style>
+.month-year-caption {
+	font-family: Forte !important;
+}
 .calendar-container {
 	margin:0 auto !important;
 
@@ -112,7 +115,8 @@ ul.calendar li.day {
 	ul.weekdays li {
 		font-family: Forte;
 		font-weight: 100 !important;
-		background-color: #777 !important;
+		font-size: 15px;
+		background-color: #222 !important;
 		color: #FFF !important;
 	}
 <?php
