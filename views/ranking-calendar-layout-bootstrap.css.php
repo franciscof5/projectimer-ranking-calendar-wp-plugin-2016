@@ -47,7 +47,7 @@ ul.calendar li.day {
 		height: 15px;
 
 	}
-	ul.calendar li.day .day-footer li:hover {
+	ul.calendar li.day .day-footer2 li:hover {
 		white-space: normal;
 		height: inherit !important;
 		

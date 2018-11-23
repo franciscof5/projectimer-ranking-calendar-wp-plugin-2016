@@ -256,11 +256,11 @@ $day_current = date('d');
 						}*/
 						?>
 					<li>
-						
+						<span style="color: #337ab7; letter-spacing: -1px;"><?php echo $ddd = substr($posts[$index]->post_date, 11,5); ?> </span>
 						<?php 
 						#$echo the_time( "G:i",$posts[$index]->ID); 
 						#date_default_timezone_set('Pacific/Midway'); 
-						echo $ddd = substr($posts[$index]->post_date, 11,5);
+						
 						#$dt = date( "G:i",strtotime("$ddd -3 hours"));
 
 						#echo $dt = strtotime("-5 hours", $dt);
@@ -270,22 +270,28 @@ $day_current = date('d');
 						//var_dump($posts[$index]);die;
 						#echo $dt;
 						?>
-						<a href="#">
-							<?php  
-							//echo $posts[$index]->post_author;
-							if(get_the_author_meta('display_name', $posts[$index]->post_author)=="")
-								echo "anônimo";
-							else
-								echo get_the_author_meta('display_name', $posts[$index]->post_author);
-							//$post = get_post( $posts[$index]->ID) ); 
-							// echo $post->post_author; ); 
-							?> 
-						</a>
-						<a href="<?php echo get_permalink($posts[$index]->ID); ?>" style="color:#333;">
+						
+						<a href="<?php echo get_permalink($posts[$index]->ID); ?>" style="color:#000;">
 							<?php echo $posts[$index]->post_title; ?>
 							<?php #the_author(); ?>
 
 						</a>
+
+						<!--a href="<?php echo bp_core_get_userlink($posts[$index]->post_author); ?>"-->
+							<?php  
+							
+							//echo $posts[$index]->post_author;
+							//echo $posts[$index]->post_author;
+							if(get_the_author_meta('display_name', $posts[$index]->post_author)=="")
+								echo "anônimo";
+							else
+								echo bp_core_get_userlink($posts[$index]->post_author);
+								//echo get_the_author_meta('display_name', $posts[$index]->post_author);
+							//$post = get_post( $posts[$index]->ID) ); 
+							// echo $post->post_author; ); 
+							?> 
+						<!--/a-->
+
 						<!--a title="Ver calendario de " href="<?php bloginfo(url); ?>/calendar/?id=<?php echo $posts[$index]->post_author; ?></a>"-->
 						
 					</li>
